@@ -26,5 +26,4 @@ services:
       - "./tests:/scripts"
     environment:
       - K6_OUT=influxdb=http://influxdb:8086/k6
-      - LI_TOKEN=xxx
     command: "version"
