@@ -8,16 +8,16 @@ export const options = {
   vus: 10,
   duration: "15s",
   thresholds: {
-    // errors: ["rate<10"]
+    errors: ["count<10"]
   }
 };
 
 export default function() {
-  const checkStatus = Math.random() < 0.9 ? 200 : 404;
+  const path = Math.random() < 0.9 ? "200" : "500";
 
-  let res = http.get("https://test.loadimpact.com");
+  let res = http.get(`https://httpbin.test.loadimpact.com/status/${path}`);
   let success = check(res, {
-    "status is 200": r => r.status === checkStatus
+    "status is 200": r => r.status === 200
   });
   if (!success) {
     ErrorCount.add(1);
