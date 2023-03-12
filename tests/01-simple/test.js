@@ -8,7 +8,7 @@ export const options = {
   vus: 10,
   duration: "15s",
   thresholds: {
-    errors: ["count<10"]
+    errors: ["count < 10"]
   }
 };
 
